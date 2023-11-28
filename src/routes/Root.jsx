@@ -19,7 +19,7 @@ const Root = () => {
     if (!cookies?.access_token) return navigate("/auth/login");
     const response = await verify(cookies?.access_token);
     if (response?.error) return navigate("/auth/login");
-    navigate(beforePathname ?? "/dashboard");
+    navigate(beforePathname);
   };
 
   useEffect(() => {
