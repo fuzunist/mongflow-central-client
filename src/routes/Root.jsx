@@ -13,15 +13,13 @@ const Root = () => {
   const navigate = useNavigate();
 
   const verifyHandle = async () => {
-    // const beforePathname = sessionStorage.getItem("beforePathname");
-    // console.log("verifyHandle - beforePathnam: ", beforePathname);
+    const beforePathname = sessionStorage.getItem("beforePathname");
+    console.log("verifyHandle - beforePathnam: ", beforePathname);
 
-    // if (!cookies?.access_token) return navigate("/auth/login");
-    // const response = await verify(cookies?.access_token);
-    // if (response?.error) return navigate("/auth/login");
-    // navigate(beforePathname);
-
-    <Navigate to={"/auth/login"} />
+    if (!cookies?.access_token) return navigate("/auth/login");
+    const response = await verify(cookies?.access_token);
+    if (response?.error) return navigate("/auth/login");
+    navigate("/auth/login" ?? beforePathname);
   };
 
   useEffect(() => {
