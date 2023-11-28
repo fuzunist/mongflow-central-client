@@ -19,14 +19,6 @@ const Root = () => {
     if (!cookies?.access_token) return navigate("/auth/login");
     const response = await verify(cookies?.access_token);
     if (response?.error) return navigate("/auth/login");
-    setUser({
-      ...response,
-      tokens: {
-        access_token: cookies.access_token,
-        refresh_token: cookies.refresh_token,
-      },
-    });
-    promiseAll(cookies.access_token, response.usertype);
     navigate(beforePathname ?? "/dashboard");
   };
 

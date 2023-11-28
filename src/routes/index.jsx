@@ -17,7 +17,7 @@ import Login from '../pages/Login'
 const routes = createBrowserRouter([
     {
         path: '/',
-        element: <Welcome />,
+        element: <Root />,
         errorElement: <NotFound />
     },
     {
@@ -45,12 +45,7 @@ const routes = createBrowserRouter([
             //     errorElement: <NotFound />
             // }
         ]
-    },
-    {
-        path: '/dashboard',
-        element: <Welcome />,
-        errorElement: <NotFound />
-    },
+    }
 ])
 
 export default routes
