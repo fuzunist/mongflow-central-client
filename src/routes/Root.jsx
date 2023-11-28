@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 import { verify } from "../services/auth";
 import { setUser } from "../store/actions/user";
@@ -13,13 +13,15 @@ const Root = () => {
   const navigate = useNavigate();
 
   const verifyHandle = async () => {
-    const beforePathname = sessionStorage.getItem("beforePathname");
-    console.log("verifyHandle - beforePathnam: ", beforePathname);
+    // const beforePathname = sessionStorage.getItem("beforePathname");
+    // console.log("verifyHandle - beforePathnam: ", beforePathname);
 
-    if (!cookies?.access_token) return navigate("/auth/login");
-    const response = await verify(cookies?.access_token);
-    if (response?.error) return navigate("/auth/login");
-    navigate(beforePathname);
+    // if (!cookies?.access_token) return navigate("/auth/login");
+    // const response = await verify(cookies?.access_token);
+    // if (response?.error) return navigate("/auth/login");
+    // navigate(beforePathname);
+
+    <Navigate to={"/auth/login"} />
   };
 
   useEffect(() => {
