@@ -29,7 +29,7 @@ const Login = () => {
   //   sameSite: "none",
   // };
 
-  const [_, setCookies] = useCookies(
+  const [cookies, setCookies] = useCookies(
     ["access_token", "refresh_token"]
   );
 
@@ -77,6 +77,12 @@ const Login = () => {
       httpOnly: true,
       sameSite: "none",
     });
+
+     console.log(cookies, "cookiess set in login")
+    sessionStorage.setItem('access_token', response.tokens.access_token )
+    sessionStorage.setItem('refresh_token', response.tokens.refresh_token )
+
+
 
     const clientURL = companyClientList[response.itin];
     window.location.href = clientURL; //import.meta.VITE_CLIENT_ENDPOINT;
