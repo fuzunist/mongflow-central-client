@@ -21,11 +21,11 @@ const routes = createBrowserRouter([
         errorElement: <NotFound />
     },
     {
-        path: 'auth',
+        path: '*',
         element: <AuthLayout />,
         children: [
             {
-                path: 'login',
+                path: 'auth/login',
                 element: <Login />,
                 errorElement: <NotFound />
             },
