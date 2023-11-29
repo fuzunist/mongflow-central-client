@@ -3,11 +3,11 @@ import Loader from "@/components/Loader";
 
 const Root = () => {
   const redirectHandle = async () => {
-    window.location.href = "/auth/login";
+    window.location.href = "auth/login";
   };
 
   useEffect(() => {
-    // redirectHandle();
+    redirectHandle();
   }, []);
 
   return <Loader />;
