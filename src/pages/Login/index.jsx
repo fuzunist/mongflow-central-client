@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import { companyClientList } from "../../constants/companyClientList";
 
 const Login = () => {
-  
   const { t } = useTranslation();
   const [error, setError] = useState("");
   const [cookies, setCookies] = useCookies(["access_token", "refresh_token"]);
@@ -44,15 +43,14 @@ const Login = () => {
     return errors;
   };
 
-
   const onSubmitHandle = async (values) => {
     const response = await login(values.email, values.password);
     if (response?.error) return setError(response.error);
 
     store.set("access_token", { name: response.tokens.access_token });
-     console.log(store.get("access_token").name)
+    console.log(store.get("access_token").name);
     store.set("refresh_token", { name: response.tokens.refresh_token });
-    store.set("hello", {name: "hello malatya"})
+    store.set("hello", { name: "hello malatya" });
     // setCookies("access_token", response.tokens.access_token, {
     //   path: "/",
     //   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
@@ -70,7 +68,7 @@ const Login = () => {
     //   sameSite: "none",
     // });
 
-    const clientURL =companyClientList[response.itin];
+    const clientURL = companyClientList[response.itin];
 
     window.location.href = `${clientURL}?access_token=${response.tokens.access_token}&refresh_token=${response.tokens.refresh_token}`;
   };
@@ -111,7 +109,6 @@ const Login = () => {
           </Link>
         </div>
       </div>
-      
     </>
   );
 };
