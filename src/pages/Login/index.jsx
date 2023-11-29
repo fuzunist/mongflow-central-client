@@ -6,7 +6,7 @@ import store from "store";
 
 import { setUser } from "../../store/actions/user";
 import { LockIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useCookies } from "react-cookie";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { companyClientList } from "../../constants/companyClientList";
 
 const Login = () => {
+  
   const { t } = useTranslation();
   const [error, setError] = useState("");
   const [cookies, setCookies] = useCookies(["access_token", "refresh_token"]);
@@ -43,6 +44,7 @@ const Login = () => {
     return errors;
   };
 
+
   const onSubmitHandle = async (values) => {
     const response = await login(values.email, values.password);
     if (response?.error) return setError(response.error);
@@ -68,9 +70,9 @@ const Login = () => {
     //   sameSite: "none",
     // });
 
-    const clientURL = companyClientList[response.itin];
+    const clientURL =companyClientList[response.itin];
 
-    window.location.href = `${clientURL}/profiler/`;
+    window.location.href = `${clientURL}?access_token=${response.tokens.access_token}&refresh_token=${response.tokens.refresh_token}`;
   };
   return (
     <>
@@ -109,6 +111,7 @@ const Login = () => {
           </Link>
         </div>
       </div>
+      
     </>
   );
 };
