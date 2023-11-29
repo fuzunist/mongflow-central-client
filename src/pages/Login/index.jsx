@@ -19,7 +19,17 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const [_, setCookies] = useCookies(["access_token", "refresh_token"]);
+  const CookieSetOptions= {
+    path: "/",
+    // expires: Date,
+    // maxAge: number,
+    domain: "mongflow.com",
+    secure: true,
+    httpOnly: true,
+    sameSite: 'lax'
+}
+
+  const [_, setCookies] = useCookies(["access_token", "refresh_token"], CookieSetOptions);
 
   const initialValues = {
     email: {
@@ -59,7 +69,7 @@ const Login = () => {
     });
 
     const clientURL=companyClientList[response.itin]
-    window.location.href = clientURL //import.meta.VITE_CLIENT_ENDPOINT;
+    window.location.href = cli //import.meta.VITE_CLIENT_ENDPOINT;
   };
 
   return (
