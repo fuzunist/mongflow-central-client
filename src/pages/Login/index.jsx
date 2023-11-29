@@ -11,34 +11,12 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { companyClientList } from "../../constants/companyClientList";
+import store from "store"
 
 const Login = () => {
   const { t } = useTranslation();
-
   const [error, setError] = useState("");
-
-  const navigate = useNavigate();
-
-  // const cookieOptions = {
-  //   path: "/",
-  //   // expires: Date,
-  //   // maxAge: number,
-  //   domain: "mongflow.com",
-  //   secure: true,
-  //   httpOnly: true,
-  //   sameSite: "none",
-  // };
-
-  const [cookies, setCookies] = useCookies(
-    ["access_token", "refresh_token"]
-    // {
-    //   path: "/",
-    //   domain: ".mongflow.com",
-    //   secure: true,
-    //   httpOnly: true,
-    //   sameSite: "lax",
-    // }
-  );
+  const [cookies, setCookies] = useCookies(["access_token", "refresh_token"]);
 
   const initialValues = {
     email: {
@@ -68,33 +46,31 @@ const Login = () => {
     const response = await login(values.email, values.password);
     if (response?.error) return setError(response.error);
 
-    setCookies("access_token", response.tokens.access_token, {
-      path: "/",
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-      domain: ".mongflow.com",
-      secure: true,
-      httpOnly: true,
-      sameSite: "none",
-    });
-    setCookies("refresh_token", response.tokens.refresh_token, {
-      path: "/",
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-      domain: ".mongflow.com",
-      secure: true,
-      httpOnly: true,
-      sameSite: "none",
-    });
+   store.set('access_token', response.tokens.access_token)
+   store.set('refresh_token', response.tokens.refresh_token)
 
-    document.cookie= "access_token=value;domain=.mongflow.com; sameSite: None; httpOnly"
-
-    console.log(cookies, "cookiess set in login");
-    sessionStorage.setItem("access_token", response.tokens.access_token);
-    sessionStorage.setItem("refresh_token", response.tokens.refresh_token);
+    // setCookies("access_token", response.tokens.access_token, {
+    //   path: "/",
+    //   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+    //   domain: ".mongflow.com",
+    //   secure: true,
+    //   httpOnly: true,
+    //   sameSite: "none",
+    // });
+    // setCookies("refresh_token", response.tokens.refresh_token, {
+    //   path: "/",
+    //   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+    //   domain: ".mongflow.com",
+    //   secure: true,
+    //   httpOnly: true,
+    //   sameSite: "none",
+    // });
 
     const clientURL = companyClientList[response.itin];
-    window.location.href = clientURL; //clientURL; //import.meta.VITE_CLIENT_ENDPOINT;
+ 
+  
+    window.location.href = clientURL;
   };
-
   return (
     <>
       <Helmet>
