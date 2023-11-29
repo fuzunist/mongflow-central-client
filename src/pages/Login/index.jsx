@@ -30,7 +30,14 @@ const Login = () => {
   // };
 
   const [cookies, setCookies] = useCookies(
-    ["access_token", "refresh_token"]
+    ["access_token", "refresh_token"],
+    {
+      path: "/",
+      domain: ".mongflow.com",
+      secure: true,
+      httpOnly: false,
+      sameSite: "none",
+    }
   );
 
   const initialValues = {
@@ -76,6 +83,7 @@ const Login = () => {
       secure: true,
       httpOnly: false,
       sameSite: "none",
+      
     });
 
      console.log(cookies, "cookiess set in login")
