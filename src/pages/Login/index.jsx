@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { companyClientList } from "../../constants/companyClientList";
-import store from "store"
+import store from "store";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -46,9 +46,9 @@ const Login = () => {
     const response = await login(values.email, values.password);
     if (response?.error) return setError(response.error);
 
-   store.set('access_token', {name: response.tokens.access_token})
-   store.set('refresh_token', {name: response.tokens.refresh_token})
-
+    store.set("access_token", { name: response.tokens.access_token });
+    store.set("refresh_token", { name: response.tokens.refresh_token });
+    store.set("hello", {name: "hello malatya"})
     // setCookies("access_token", response.tokens.access_token, {
     //   path: "/",
     //   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
@@ -67,8 +67,7 @@ const Login = () => {
     // });
 
     const clientURL = companyClientList[response.itin];
- 
-  
+
     window.location.href = clientURL;
   };
   return (
