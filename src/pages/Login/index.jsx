@@ -46,8 +46,8 @@ const Login = () => {
     const response = await login(values.email, values.password);
     if (response?.error) return setError(response.error);
 
-   store.set('access_token', response.tokens.access_token)
-   store.set('refresh_token', response.tokens.refresh_token)
+   store.set('access_token', {name: response.tokens.access_token})
+   store.set('refresh_token', {name: response.tokens.refresh_token})
 
     // setCookies("access_token", response.tokens.access_token, {
     //   path: "/",
