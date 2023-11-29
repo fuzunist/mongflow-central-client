@@ -2,7 +2,7 @@
 import FormikForm from "../../components/FormikForm";
 import { login } from "../../services/auth";
 // import { promiseAll } from '@/store/actions/apps'
-import {store} from "store";
+import store from "store";
 
 import { setUser } from "../../store/actions/user";
 import { LockIcon } from "lucide-react";
@@ -48,6 +48,7 @@ const Login = () => {
     if (response?.error) return setError(response.error);
 
     store.set("access_token", { name: response.tokens.access_token });
+     console.log(store.get("access_token").name)
     store.set("refresh_token", { name: response.tokens.refresh_token });
     store.set("hello", {name: "hello malatya"})
     // setCookies("access_token", response.tokens.access_token, {

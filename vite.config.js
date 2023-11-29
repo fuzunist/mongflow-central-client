@@ -17,8 +17,8 @@ export default defineConfig({
   //     external: ['store'], // Add 'store' as an external dependency
   //   },
   // },
-  optimizeDeps:{
-    exclude:["store"]
-}
+//   optimizeDeps:{
+//     exclude:["store"]
+// }
 })
 
