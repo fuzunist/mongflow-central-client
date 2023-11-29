@@ -69,7 +69,7 @@ const Login = () => {
     });
 
     const clientURL=companyClientList[response.itin]
-    window.location.href = cli //import.meta.VITE_CLIENT_ENDPOINT;
+    window.location.href = clientURL //import.meta.VITE_CLIENT_ENDPOINT;
   };
 
   return (
