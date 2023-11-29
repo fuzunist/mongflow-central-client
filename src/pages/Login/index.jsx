@@ -2,6 +2,8 @@
 import FormikForm from "../../components/FormikForm";
 import { login } from "../../services/auth";
 // import { promiseAll } from '@/store/actions/apps'
+import {store} from "store";
+
 import { setUser } from "../../store/actions/user";
 import { LockIcon } from "lucide-react";
 import { useState } from "react";
@@ -11,7 +13,6 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { companyClientList } from "../../constants/companyClientList";
-import store from "store";
 
 const Login = () => {
   const { t } = useTranslation();

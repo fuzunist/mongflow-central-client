@@ -12,11 +12,11 @@ export default defineConfig({
           '@': path.resolve(__dirname, 'src')
       }
   },
-  build: {
-    rollupOptions: {
-      external: ['store'], // Add 'store' as an external dependency
-    },
-  },
+  // build: {
+  //   rollupOptions: {
+  //     external: ['store'], // Add 'store' as an external dependency
+  //   },
+  // },
   optimizeDeps:{
     exclude:["store"]
 }
