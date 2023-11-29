@@ -7,7 +7,7 @@ const Root = () => {
   };
 
   useEffect(() => {
-    redirectHandle();
+    // redirectHandle();
   }, []);
 
   return <Loader />;
