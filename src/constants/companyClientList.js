@@ -1,4 +1,4 @@
 export const companyClientList = {
-  125869: "ata.mongflow.com",
-  175436: "mg.mongflow.com",
+  125869: "https://ata.mongflow.com",
+  175436: "https://mg.mongflow.com/",
 };
