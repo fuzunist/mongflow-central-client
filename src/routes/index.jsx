@@ -16,18 +16,19 @@ const routes = createBrowserRouter([
         element: <Root />,
     },
   {
-    path: "/auth",
+    path: "auth",
     element: <AuthLayout />,
     children: [
       {
-        path: "/login",
+        index: true,
+        path: "login",
         element: <Login />,
       },
     ],
   },
 
     {
-      path: "/*",
+      path: "*",
       element: <NotFound />,
     },
 ]);
