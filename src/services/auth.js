@@ -17,7 +17,10 @@ export const verify = async (access_token) => {
 export const login = async (Email, Password) => {
     try {
          console.log(import.meta.env.VITE_API_ENDPOINT)
-        const { data } = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/user/login`, { Email, Password })
+        const { data } = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/user/login`, { Email, Password }, {
+            'Access-Control-Allow-Origin': 'https://mg.mongflow.com',
+            'withCredentials': "true"
+        })
         return data
     } catch (e) {
         return e.response.data
