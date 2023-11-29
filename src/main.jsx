@@ -6,7 +6,7 @@ import routes from "./routes";
 import store from "./store";
 import "./i18n";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Login from "../pages/Login";
+import Login from "./pages/Login";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
