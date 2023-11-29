@@ -21,10 +21,7 @@ export const login = async (Email, Password) => {
     console.log(import.meta.env.VITE_API_ENDPOINT);
     const { data } = await axios.post(
       `${import.meta.env.VITE_API_ENDPOINT}/user/login`,
-      { Email, Password },
-      {
-        withCredentials: true, // Allow cookies to be sent
-      }
+      { Email, Password }
     );
     return data;
   } catch (e) {

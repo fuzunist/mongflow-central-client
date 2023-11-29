@@ -74,7 +74,7 @@ const Login = () => {
       domain: ".mongflow.com",
       secure: true,
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "none",
     });
     setCookies("refresh_token", response.tokens.refresh_token, {
       path: "/",
@@ -82,8 +82,10 @@ const Login = () => {
       domain: ".mongflow.com",
       secure: true,
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "none",
     });
+
+    document.cookie= "access_token=value;domain=.mongflow.com; sameSite: None; httpOnly"
 
     console.log(cookies, "cookiess set in login");
     sessionStorage.setItem("access_token", response.tokens.access_token);
