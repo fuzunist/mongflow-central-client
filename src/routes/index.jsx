@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 // import Root from './Root'
 import NotFound from "../pages/not-found";
 import Root from "./Root";
@@ -9,33 +9,26 @@ import AuthLayout from "../layouts/AuthLayout";
 import Welcome from "../pages/Welcome";
 import Login from "../pages/Login";
 
-
 const routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <Navigate to="/auth/login" /> ,
-    },
   {
-    path: "auth",
+    path: "/",
+    element: <Navigate to="/auth/login" />,
+  },
+  {
+    path: "auth/login",
     element: <AuthLayout />,
-    children: [
-      {
-        index: true,
-        path: "login",
-        element: <Login />,
-      },
-    ],
+    
   },
 
   {
-    path: '/welcome',
+    path: "/welcome",
     element: <Root />,
   },
 
-    {
-      path: "*",
-      element: <NotFound />,
-    },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 export default routes;

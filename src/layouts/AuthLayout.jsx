@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 // import LogoDark from '@/assets/img/logo-dark.png'
 // import LogoLight from '@/assets/img/logo-light.png'
 import NewLogo from "@/assets/img/logo-mg.png";
+import Login from "../pages/Login";
 
 const AuthLayout = () => {
   const { t } = useTranslation();
@@ -38,7 +39,7 @@ const AuthLayout = () => {
                {t("authTitle")}
               </p>
             </div>
-            <Outlet />
+            <Login />
           </div>
         </div>
       </div>
