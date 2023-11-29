@@ -11,31 +11,21 @@ import Login from "../pages/Login";
 
 
 const routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <Root />,
-    },
+ 
   {
-    path: "auth",
+    path: "*",
     element: <AuthLayout />,
     children: [
       {
         index: true,
-        path: "login",
+        path: "auth/login",
         element: <Login />,
       },
     ],
   },
 
-  {
-    path: 'welcome',
-    element: <Welcome />,
-  },
 
-    {
-      path: "*",
-      element: <NotFound />,
-    },
+
 ]);
 
 export default routes;
