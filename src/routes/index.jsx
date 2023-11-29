@@ -14,26 +14,28 @@ import Login from "../pages/Login";
 // import ForgetPassword from '@/pages/ForgetPassword'
 
 const routes = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "auth",
-    element: <AuthLayout />,
-    children: [
-      {
-        path: "login",
-        element: <Welcome />,
-      },
-    ],
-  },
-
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-]);
+    {
+      path: '/',
+      element: <Root />,
+      children: [
+        {
+          path: 'auth',
+          element: <AuthLayout />,
+          children: [
+            {
+              path: 'login',
+              element: <Login />,
+            },
+          ],
+        },
+        // Add other routes as needed within Root component
+      ],
+    },
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+  ]);
+  
 
 export default routes;
