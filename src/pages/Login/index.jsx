@@ -19,17 +19,20 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const CookieSetOptions= {
+  const cookieOptions = {
     path: "/",
     // expires: Date,
     // maxAge: number,
     domain: "mongflow.com",
     secure: true,
     httpOnly: true,
-    sameSite: 'lax'
-}
+    sameSite: "lax",
+  };
 
-  const [_, setCookies] = useCookies(["access_token", "refresh_token"], CookieSetOptions);
+  const [_, setCookies] = useCookies(
+    ["access_token", "refresh_token"],
+    cookieOptions
+  );
 
   const initialValues = {
     email: {
@@ -62,14 +65,22 @@ const Login = () => {
     setCookies("access_token", response.tokens.access_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+      domain: "mongflow.com",
+      secure: true,
+      httpOnly: true,
+      sameSite: "lax",
     });
     setCookies("refresh_token", response.tokens.refresh_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+      domain: "mongflow.com",
+      secure: true,
+      httpOnly: true,
+      sameSite: "lax",
     });
 
-    const clientURL=companyClientList[response.itin]
-    window.location.href = clientURL //import.meta.VITE_CLIENT_ENDPOINT;
+    const clientURL = companyClientList[response.itin];
+    window.location.href = clientURL; //import.meta.VITE_CLIENT_ENDPOINT;
   };
 
   return (
