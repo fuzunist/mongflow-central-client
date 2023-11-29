@@ -27,6 +27,11 @@ const routes = createBrowserRouter([
     ],
   },
 
+  {
+    path: 'welcome',
+    element: <Welcome />,
+  },
+
     {
       path: "*",
       element: <NotFound />,

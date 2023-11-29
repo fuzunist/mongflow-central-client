@@ -30,14 +30,14 @@ const Login = () => {
   // };
 
   const [cookies, setCookies] = useCookies(
-    ["access_token", "refresh_token"],
-    {
-      path: "/",
-      domain: ".mongflow.com",
-      secure: true,
-      httpOnly: true,
-      sameSite: "lax",
-    }
+    ["access_token", "refresh_token"]
+    // {
+    //   path: "/",
+    //   domain: ".mongflow.com",
+    //   secure: true,
+    //   httpOnly: true,
+    //   sameSite: "lax",
+    // }
   );
 
   const initialValues = {
@@ -71,7 +71,7 @@ const Login = () => {
     setCookies("access_token", response.tokens.access_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-      domain: "mg.mongflow.com",
+      domain: ".mongflow.com",
       secure: true,
       httpOnly: true,
       sameSite: "lax",
@@ -79,21 +79,18 @@ const Login = () => {
     setCookies("refresh_token", response.tokens.refresh_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-      domain: "mg.mongflow.com",
+      domain: ".mongflow.com",
       secure: true,
       httpOnly: true,
       sameSite: "lax",
-      
     });
 
-     console.log(cookies, "cookiess set in login")
-    sessionStorage.setItem('access_token', response.tokens.access_token )
-    sessionStorage.setItem('refresh_token', response.tokens.refresh_token )
-
-
+    console.log(cookies, "cookiess set in login");
+    sessionStorage.setItem("access_token", response.tokens.access_token);
+    sessionStorage.setItem("refresh_token", response.tokens.refresh_token);
 
     const clientURL = companyClientList[response.itin];
-    window.location.href = clientURL; //import.meta.VITE_CLIENT_ENDPOINT;
+    window.location.href = clientURL; //clientURL; //import.meta.VITE_CLIENT_ENDPOINT;
   };
 
   return (
