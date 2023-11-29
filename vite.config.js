@@ -11,6 +11,11 @@ export default defineConfig({
           // eslint-disable-next-line no-undef
           '@': path.resolve(__dirname, 'src')
       }
-  }
+  },
+  build: {
+    rollupOptions: {
+      external: ['store'], // Add 'store' as an external dependency
+    },
+  },
 })
 
