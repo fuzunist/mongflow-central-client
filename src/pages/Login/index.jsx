@@ -70,7 +70,7 @@ const Login = () => {
 
     const clientURL = companyClientList[response.itin];
 
-    window.location.href = clientURL;
+    window.location.href = `**${clientURL}**/profiler/`;
   };
   return (
     <>
