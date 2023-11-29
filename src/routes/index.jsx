@@ -17,35 +17,43 @@ import Login from '../pages/Login'
 const routes = createBrowserRouter([
     {
         path: '/',
-        element: <Root />,
-        errorElement: <NotFound />
-    },
-    {
-        path: '*',
         element: <AuthLayout />,
-        children: [
+        errorElement: <NotFound />,
+        children:[
             {
-                path: 'auth/login',
+                index: true,
+                path: "auth/login",
                 element: <Login />,
                 errorElement: <NotFound />
-            },
-            // {
-            //     path: 'register',
-            //     element: <Register />,
-            //     errorElement: <NotFound />
-            // },
-            // {
-            //     path: 'forget-password',
-            //     element: <ForgetPassword />,
-            //     errorElement: <NotFound />
-            // },
-            // {
-            //     path: 'logout',
-            //     element: <LogOut />,
-            //     errorElement: <NotFound />
-            // }
+            }
         ]
-    }
+    },
+    // {
+    //     path: '*',
+    //     element: <AuthLayout />,
+    //     children: [
+    //         {
+    //             path: 'auth/login',
+    //             element: <Login />,
+    //             errorElement: <NotFound />
+    //         },
+    //         // {
+    //         //     path: 'register',
+    //         //     element: <Register />,
+    //         //     errorElement: <NotFound />
+    //         // },
+    //         // {
+    //         //     path: 'forget-password',
+    //         //     element: <ForgetPassword />,
+    //         //     errorElement: <NotFound />
+    //         // },
+    //         // {
+    //         //     path: 'logout',
+    //         //     element: <LogOut />,
+    //         //     errorElement: <NotFound />
+    //         // }
+    //     ]
+    // }
 ])
 
 export default routes
