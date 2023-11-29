@@ -19,19 +19,18 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const cookieOptions = {
-    path: "/",
-    // expires: Date,
-    // maxAge: number,
-    domain: "mongflow.com",
-    secure: true,
-    httpOnly: true,
-    sameSite: "lax",
-  };
+  // const cookieOptions = {
+  //   path: "/",
+  //   // expires: Date,
+  //   // maxAge: number,
+  //   domain: "mongflow.com",
+  //   secure: true,
+  //   httpOnly: true,
+  //   sameSite: "none",
+  // };
 
   const [_, setCookies] = useCookies(
-    ["access_token", "refresh_token"],
-    cookieOptions
+    ["access_token", "refresh_token"]
   );
 
   const initialValues = {
@@ -68,7 +67,7 @@ const Login = () => {
       domain: "mongflow.com",
       secure: true,
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "none",
     });
     setCookies("refresh_token", response.tokens.refresh_token, {
       path: "/",
@@ -76,7 +75,7 @@ const Login = () => {
       domain: "mongflow.com",
       secure: true,
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "none",
     });
 
     const clientURL = companyClientList[response.itin];
