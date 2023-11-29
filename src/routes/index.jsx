@@ -14,10 +14,10 @@ import Login from "../pages/Login";
 // import ForgetPassword from '@/pages/ForgetPassword'
 
 const routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <Root />,
-    },
+    // {
+    //     path: '/',
+    //     element: <Root />,
+    // },
   {
     path: "auth",
     element: <AuthLayout />,
