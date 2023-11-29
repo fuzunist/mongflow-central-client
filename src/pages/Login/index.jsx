@@ -64,17 +64,17 @@ const Login = () => {
     setCookies("access_token", response.tokens.access_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-      domain: "*.mongflow.com",
+      domain: ".mongflow.com",
       secure: true,
-      httpOnly: true,
+      httpOnly: false,
       sameSite: "none",
     });
     setCookies("refresh_token", response.tokens.refresh_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-      domain: "*.mongflow.com",
+      domain: ".mongflow.com",
       secure: true,
-      httpOnly: true,
+      httpOnly: false,
       sameSite: "none",
     });
 
