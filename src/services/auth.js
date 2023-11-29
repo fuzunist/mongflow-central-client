@@ -17,10 +17,7 @@ export const verify = async (access_token) => {
 export const login = async (Email, Password) => {
     try {
          console.log(import.meta.env.VITE_API_ENDPOINT)
-        const { data } = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/user/login`, { Email, Password }, {
-            'withCredentials': "true",
-            
-        })
+        const { data } = await axios.post(`${import.meta.env.VITE_API_ENDPOINT}/user/login`, { Email, Password })
         return data
     } catch (e) {
         return e.response.data

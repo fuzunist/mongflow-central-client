@@ -35,8 +35,8 @@ const Login = () => {
       path: "/",
       domain: ".mongflow.com",
       secure: true,
-      httpOnly: false,
-      sameSite: "none",
+      httpOnly: true,
+      sameSite: "lax",
     }
   );
 
@@ -71,18 +71,18 @@ const Login = () => {
     setCookies("access_token", response.tokens.access_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-      domain: ".mongflow.com",
+      domain: "mg.mongflow.com",
       secure: true,
-      httpOnly: false,
-      sameSite: "none",
+      httpOnly: true,
+      sameSite: "lax",
     });
     setCookies("refresh_token", response.tokens.refresh_token, {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-      domain: ".mongflow.com",
+      domain: "mg.mongflow.com",
       secure: true,
-      httpOnly: false,
-      sameSite: "none",
+      httpOnly: true,
+      sameSite: "lax",
       
     });
 
