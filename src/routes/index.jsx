@@ -8,16 +8,13 @@ import AuthLayout from "../layouts/AuthLayout";
 
 import Welcome from "../pages/Welcome";
 import Login from "../pages/Login";
-// import Register from '../pages/Register'
-// import ForgetPassword from "../pages/ForgetPassword"
-// import LogOut from '@/pages/LogOut'
-// import ForgetPassword from '@/pages/ForgetPassword'
+
 
 const routes = createBrowserRouter([
-    // {
-    //     path: '/',
-    //     element: <Root />,
-    // },
+    {
+        path: '/',
+        element: <Root />,
+    },
   {
     path: "auth",
     element: <AuthLayout />,
