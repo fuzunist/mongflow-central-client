@@ -16,7 +16,7 @@ body,
 }
 
 .authenticated-bg {
-    background-image: url('/bg-auth.jpg');
+    background-image: url('/.jpg');
     @apply bg-cover bg-center;
 }
 

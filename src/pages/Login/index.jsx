@@ -90,7 +90,7 @@ const Login = () => {
       validate={validate}
     />
   </div>
-  <div className="flex flex-col">
+  {/* <div className="flex flex-col">
     <div className="mt-6">
       <Link
         to="/auth/forget-password"
@@ -110,7 +110,7 @@ const Login = () => {
         {t("signUp")}
       </Link>
     </div>
-  </div>
+  </div> */}
 </>)
   return content
 };
