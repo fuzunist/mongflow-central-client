@@ -9,7 +9,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Welcome from "../pages/Welcome";
 import Login from "../pages/Login";
 
-const routes = createHashRouter([
+const routes = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/auth/login" />,
