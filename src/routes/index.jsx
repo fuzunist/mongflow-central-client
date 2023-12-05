@@ -12,14 +12,14 @@ import Login from "../pages/Login";
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/auth/login" />,
+    element: <Root />,
   },
   {
-    path: "*",
+    path: "auth/*",
     element: <AuthLayout />,
     children: [
       {
-        path: "auth/login",
+        path: "login",
         element: <Login />,
       },
       {
