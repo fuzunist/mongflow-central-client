@@ -13,3 +13,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <RouterProvider router={routes} />
 </Provider>
 )
+
+window.addEventListener("beforeunload", () => {
+        console.log("beforeunload", location.pathname);
+      
+        sessionStorage.setItem(
+          "beforePathname",
+          location.pathname === "/" ? "/dashboard" : location.pathname
+        );
+      });
+      
+      
