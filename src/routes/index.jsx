@@ -15,25 +15,19 @@ const routes = createBrowserRouter([
     element: <Navigate to="/auth/login" />,
   },
   {
-    path: "auth",
+    path: "*",
     element: <AuthLayout />,
     children: [
       {
-        path: "login",
+        path: "auth/login",
         element: <Login />,
       },
+      {
+        path: "*",
+        element: <NotFound />,
+      }
     ],
   },
-
-  {
-    path: "/welcome",
-    element: <Welcome />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-
   
 ]);
 
