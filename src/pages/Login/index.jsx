@@ -20,7 +20,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [cookies, setCookies] = useCookies(["access_token", "refresh_token"]);
 
-  const initialValues = {
+  const initialValues = {  
     email: {
       tag: "input",
       type: "email",
@@ -69,28 +69,29 @@ const Login = () => {
     //   sameSite: "none",
     // });
 
-    const clientURL =companyClientList[response.itin];
+    const clientURL = companyClientList[response.itin];
+    //"http://localhost:5173"; 
 
-    window.location.href = `${clientURL}?access_token=${response.tokens.access_token}&refresh_token=${response.tokens.refresh_token}`;
+    return (window.location.href = `${clientURL}?access_token=${response.tokens.access_token}&refresh_token=${response.tokens.refresh_token}`);
   };
 
-  
-  content= (<>
-  <Helmet>
-    <title>Adminto - {t("signIn")}</title>
-  </Helmet>
-  <div className="flex flex-col p-9 bg-card-bg-light dark:bg-card-bg-dark w-full rounded-md">
-    <div className="text-center font-semibold uppercase mb-9 text-lg text-text-dark-light dark:text-text-dark-dark">
-      {t("signIn")}
-    </div>
-    <FormikForm
-      initialValues={initialValues}
-      onSubmit={onSubmitHandle}
-      error={error}
-      validate={validate}
-    />
-  </div>
-  {/* <div className="flex flex-col">
+  content = (
+    <>
+      <Helmet>
+        <title>Adminto - {t("signIn")}</title>
+      </Helmet>
+      <div className="flex flex-col p-9 bg-card-bg-light dark:bg-card-bg-dark w-full rounded-md">
+        <div className="text-center font-semibold uppercase mb-9 text-lg text-text-dark-light dark:text-text-dark-dark">
+          {t("signIn")}
+        </div>
+        <FormikForm
+          initialValues={initialValues}
+          onSubmit={onSubmitHandle}
+          error={error}
+          validate={validate}
+        />
+      </div>
+      {/* <div className="flex flex-col">
     <div className="mt-6">
       <Link
         to="/auth/forget-password"
@@ -111,8 +112,9 @@ const Login = () => {
       </Link>
     </div>
   </div> */}
-</>)
-  return content
+    </>
+  );
+  return content;
 };
 
 export default Login;
