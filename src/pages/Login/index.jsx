@@ -69,8 +69,8 @@ const Login = () => {
     //   sameSite: "none",
     // });
 
-    const clientURL = companyClientList[response.itin];
-    //"http://localhost:5173"; 
+    const clientURL = import.meta.env.VITE_DEV ? "http://localhost:5173" : companyClientList[response.itin];
+    // const clientURL = "http://localhost:5173"; 
 
     return (window.location.href = `${clientURL}?access_token=${response.tokens.access_token}&refresh_token=${response.tokens.refresh_token}`);
   };
