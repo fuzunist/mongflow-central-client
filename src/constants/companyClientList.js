@@ -3,4 +3,5 @@ export const companyClientList = {
   175436: "https://mg.mongflow.com/",
   194372: "https://bmetal.mongflow.com/",
   182210: "https://albayrak.mongflow.com/",
+  157941: "https://mongery.mongflow.com/",
 };
